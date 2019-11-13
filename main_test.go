@@ -15,7 +15,7 @@ func Test_getOpts(t *testing.T) {
 		name string
 		args args
 	}{
-		{"test1", args{fileIO.FileIO{"", false, 1024, 1024}}},
+		{"test1", args{fileIO.FileIO{"test.txt", false, 1024, 1024}}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
