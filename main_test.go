@@ -19,7 +19,7 @@ func Test_getOpts(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			tt.args.u = getOpts("", false, 1024, 1024)
+			tt.args.u = getOpts(tt.args.u.FileName, tt.args.u.Buffering, tt.args.u.BufferSize, tt.args.u.WriteSize)
 			if tt.args.u.FileName == "" {
 				t.Fail()
 			}
