@@ -9,17 +9,18 @@ import (
 func main() {
 	u := fileIO.FileIO{} //変数の初期化の省略型
 
-	u = getOpts(u)
+	u = getOpts("testDate", false, 1024, 10024)
 	u.FileWrite()
 	fmt.Println("Hello, World")
 }
 
-func getOpts(u fileIO.FileIO) fileIO.FileIO {
+func getOpts(filename string, buffering bool, buffer_size int, write_size int) fileIO.FileIO {
+	u1 := fileIO.FileIO{}
 	fmt.Println("Hello, getOpts")
-	flag.BoolVar(&u.Buffering, "b", false, "buffering")
-	flag.StringVar(&u.FileName, "filename", "testData.txt", "file name to write")
-	flag.IntVar(&u.BufferSize, "buffersize", 1024, "buffer size")
-	flag.IntVar(&u.WriteSize, "writesize", 102400, "write size")
+	flag.StringVar(&u1.FileName, "filename", filename, "file name to write")
+	flag.BoolVar(&u1.Buffering, "b", buffering, "buffering")
+	flag.IntVar(&u1.BufferSize, "buffersize", buffer_size, "buffer size")
+	flag.IntVar(&u1.WriteSize, "writesize", write_size, "write size")
 	flag.Parse()
-	return u
+	return u1
 }

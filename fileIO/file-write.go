@@ -20,10 +20,10 @@ func check(e error) {
 }
 
 func (u *FileIO) FileWrite() {
-	fmt.Println("Hello, FileWrite "+ u.FileName)
+	fmt.Println("Hello, FileWrite " + u.FileName)
 	var f, err = os.Create(u.FileName)
 	check(err)
-	d1 := []byte("a")
+	d1 := []byte("b")
 
 	if !u.Buffering {
 		u.BufferSize = 1

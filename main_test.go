@@ -16,10 +16,10 @@ func Test_getOpts(t *testing.T) {
 		args args
 	}{
 		{"test1", args{fileIO.FileIO{"", false, 1024, 1024}}},
-		}
+	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			getOpts(tt.args.u)
+			tt.args.u = getOpts("", false, 1024, 1024)
 			if tt.args.u.FileName == "" {
 				t.Fail()
 			}
